@@ -11,7 +11,33 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
 
-console.log(three__WEBPACK_IMPORTED_MODULE_0__);
+var scene = new three__WEBPACK_IMPORTED_MODULE_0__.Scene();
+var camera = new three__WEBPACK_IMPORTED_MODULE_0__.PerspectiveCamera(45, window.innerWidth / window.innerHeight);
+camera.position.z = 3;
+camera.position.x = -1.2;
+scene.add(camera);
+var textureLoader = new three__WEBPACK_IMPORTED_MODULE_0__.TextureLoader();
+var texture = textureLoader.load('https://bruno-simon.com/prismic/matcaps/8.png');
+var geometry = new three__WEBPACK_IMPORTED_MODULE_0__.TorusKnotGeometry(0.5, 0.2, 100, 22);
+var material = new three__WEBPACK_IMPORTED_MODULE_0__.MeshMatcapMaterial({
+  matcap: texture
+});
+var mesh = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(geometry, material);
+mesh.rotation.y = Math.PI / 4;
+scene.add(mesh);
+var renderer = new three__WEBPACK_IMPORTED_MODULE_0__.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.append(renderer.domElement); // window.setTimeout(() => {
+//     renderer.render(scene, camera);
+// }, 2000)
+
+var tick = function tick() {
+  window.requestAnimationFrame(tick);
+  mesh.rotation.y += 0.01;
+  renderer.render(scene, camera);
+};
+
+tick(); // Mapcaps: https://bruno-simon.com/prismic/matcaps/9.png
 
 /***/ }),
 

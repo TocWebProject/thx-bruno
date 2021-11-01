@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap);
 html,
 body {
   background-color: black;
@@ -5,8 +6,26 @@ body {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
+  font-family: "Oxygen", sans-serif;
 }
 
-h1 {
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+main h1 {
+  font-size: 5rem;
   color: white;
+  z-index: 100;
+  width: 42%;
+  margin-left: 10%;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
 }
