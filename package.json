@@ -17,10 +17,13 @@
   "keywords": [],
   "description": "",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "laravel-mix": "^6.0.37",
     "resolve-url-loader": "^4.0.0",
     "sass": "^1.43.2",
-    "cross-env": "^7.0.3",
     "sass-loader": "^12.2.0"
+  },
+  "dependencies": {
+    "three": "^0.134.0"
   }
 }
